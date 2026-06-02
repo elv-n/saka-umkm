@@ -6,7 +6,7 @@ import type { TitikSeri } from "@/lib/stats";
 export default function TrenChart({ seri }: { seri: TitikSeri[] }) {
   if (seri.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-zinc-300 p-6 text-center text-sm text-zinc-500 dark:border-zinc-700">
+      <p className="rounded-xl border border-dashed border-zinc-300 p-6 text-center text-sm text-zinc-500">
         Belum ada data untuk grafik.
       </p>
     );
@@ -25,10 +25,10 @@ export default function TrenChart({ seri }: { seri: TitikSeri[] }) {
     <div className="w-full flex flex-col h-full justify-between">
       <div className="mb-3 flex items-center gap-4 text-xs">
         <span className="flex items-center gap-1.5 text-slate-500 font-semibold">
-          <span className="h-2.5 w-2.5 rounded-sm bg-emerald-500" /> Pemasukan
+          <span className="h-2.5 w-2.5 rounded-sm bg-blue-500" /> Pemasukan
         </span>
         <span className="flex items-center gap-1.5 text-slate-500 font-semibold">
-          <span className="h-2.5 w-2.5 rounded-sm bg-red-400" /> Pengeluaran
+          <span className="h-2.5 w-2.5 rounded-sm bg-amber-500" /> Pengeluaran
         </span>
       </div>
 
@@ -46,12 +46,12 @@ export default function TrenChart({ seri }: { seri: TitikSeri[] }) {
             >
               <div className="flex items-end gap-0.5 sm:gap-1" style={{ height: tinggiArea - 18 }}>
                 <div
-                  className="w-1.5 sm:w-3 rounded-t bg-emerald-500 transition-all"
+                  className="w-1.5 sm:w-3 rounded-t bg-blue-500 transition-all"
                   style={{ height: Math.max(2, tinggiMasuk) }}
                   title={`Pemasukan: ${formatRupiah(titik.pemasukan)}`}
                 />
                 <div
-                  className="w-1.5 sm:w-3 rounded-t bg-red-400 transition-all"
+                  className="w-1.5 sm:w-3 rounded-t bg-amber-500 transition-all"
                   style={{ height: Math.max(2, tinggiKeluar) }}
                   title={`Pengeluaran: ${formatRupiah(titik.pengeluaran)}`}
                 />

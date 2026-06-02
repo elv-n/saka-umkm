@@ -10,15 +10,19 @@ export default function ItemBarChart({
 }: {
   judul: string;
   data: ItemRingkas[];
-  warna: "emerald" | "red" | "amber";
+  warna: "emerald" | "red" | "amber" | "blue" | "yellow" | "rose";
   metric?: "nilai" | "qty";
 }) {
   const kelasBar =
     warna === "emerald"
       ? "bg-emerald-500"
-      : warna === "amber"
+      : warna === "amber" || warna === "yellow"
         ? "bg-amber-500"
-        : "bg-red-400";
+        : warna === "blue"
+          ? "bg-blue-500"
+          : warna === "rose"
+            ? "bg-rose-500"
+            : "bg-red-500";
 
   const maks = Math.max(
     1,
@@ -42,7 +46,7 @@ export default function ItemBarChart({
                     {metric === "qty" ? `${d.totalQty} unit` : formatRupiah(d.totalNilai)}
                   </span>
                 </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-100">
                   <div
                     className={`h-full rounded-full ${kelasBar}`}
                     style={{ width: `${Math.max(4, (val / maks) * 100)}%` }}

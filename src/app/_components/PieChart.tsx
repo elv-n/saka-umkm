@@ -36,7 +36,7 @@ export default function PieChart({
               viewBox={`0 0 ${ukuran} ${ukuran}`}
               className="-rotate-90"
             >
-              {/* Lapisan dasar = pengeluaran (merah) */}
+              {/* Lapisan dasar = pengeluaran (kuning/amber) */}
               <circle
                 cx={cx}
                 cy={cy}
@@ -44,9 +44,9 @@ export default function PieChart({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={stroke}
-                className="text-red-400"
+                className="text-amber-500"
               />
-              {/* Lapisan pemasukan (hijau) menutupi sebagian */}
+              {/* Lapisan pemasukan (biru) menutupi sebagian */}
               <circle
                 cx={cx}
                 cy={cy}
@@ -56,7 +56,7 @@ export default function PieChart({
                 strokeWidth={stroke}
                 strokeDasharray={`${panjangMasuk} ${keliling - panjangMasuk}`}
                 strokeLinecap="butt"
-                className="text-emerald-500"
+                className="text-blue-500"
               />
             </svg>
             {/* Label tengah: laba/rugi */}
@@ -79,13 +79,13 @@ export default function PieChart({
           {/* Legenda + angka */}
           <dl className="min-w-[110px] flex-1 space-y-2.5 text-xs sm:text-sm">
             <Baris
-              warna="bg-emerald-500"
+              warna="bg-blue-500"
               label="Pemasukan"
               nilai={pemasukan}
               persen={total > 0 ? (pemasukan / total) * 100 : 0}
             />
             <Baris
-              warna="bg-red-400"
+              warna="bg-amber-500"
               label="Pengeluaran"
               nilai={pengeluaran}
               persen={total > 0 ? (pengeluaran / total) * 100 : 0}
@@ -111,7 +111,7 @@ function Baris({
   return (
     <div>
       <div className="flex items-center justify-between gap-2">
-        <dt className="flex min-w-0 items-center gap-1.5 text-zinc-600 dark:text-zinc-300">
+        <dt className="flex min-w-0 items-center gap-1.5 text-zinc-600">
           <span className={`h-2.5 w-2.5 shrink-0 rounded-sm ${warna}`} />
           <span className="truncate">{label}</span>
         </dt>

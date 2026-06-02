@@ -178,20 +178,20 @@ export default async function DashboardPage({
             <Kartu
               label="Total Pemasukan"
               nilai={pemasukan}
-              warna="text-emerald-700 font-extrabold"
-              highlight="emerald"
+              warna="text-blue-700 font-extrabold"
+              highlight="blue"
             />
             <Kartu
               label="Total Pengeluaran"
               nilai={pengeluaran}
-              warna="text-rose-700 font-extrabold"
-              highlight="rose"
+              warna="text-amber-600 font-extrabold"
+              highlight="yellow"
             />
             <Kartu
               label="Laba / Rugi"
               nilai={pemasukan - pengeluaran}
               warna={pemasukan - pengeluaran >= 0 ? "text-emerald-700 font-extrabold" : "text-rose-800 font-extrabold"}
-              highlight={pemasukan - pengeluaran >= 0 ? "blue" : "rose-light"}
+              highlight={pemasukan - pengeluaran >= 0 ? "emerald" : "rose-light"}
             />
           </div>
 
@@ -232,24 +232,24 @@ export default async function DashboardPage({
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
               <ItemBarChart
                 judul="Produk terlaris (Kuantitas)"
-                data={statistik.itemTerlaris}
-                warna="emerald"
+                data={statistik.itemTerlaris.slice(0, 3)}
+                warna="blue"
                 metric="qty"
               />
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
               <ItemBarChart
                 judul="Produk paling tidak laris"
-                data={statistik.itemKurangLaris}
-                warna="amber"
+                data={statistik.itemKurangLaris.slice(0, 3)}
+                warna="rose"
                 metric="qty"
               />
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
               <ItemBarChart
                 judul="Pengeluaran terbesar"
-                data={statistik.pengeluaranTeratas}
-                warna="red"
+                data={statistik.pengeluaranTeratas.slice(0, 3)}
+                warna="yellow"
                 metric="nilai"
               />
             </div>
@@ -337,12 +337,13 @@ function Kartu({
   label: string;
   nilai: number;
   warna: string;
-  highlight: "emerald" | "rose" | "blue" | "rose-light";
+  highlight: "emerald" | "rose" | "blue" | "yellow" | "rose-light";
 }) {
   const colorMap = {
     emerald: "bg-emerald-50 border-emerald-200/60 shadow-xs shadow-emerald-500/5 text-emerald-800",
     rose: "bg-rose-50 border-rose-200/60 shadow-xs shadow-rose-500/5 text-rose-800",
-    blue: "bg-emerald-50 border-emerald-200/60 shadow-xs shadow-emerald-500/5 text-emerald-800",
+    blue: "bg-blue-50 border-blue-200/60 shadow-xs shadow-blue-500/5 text-blue-800",
+    yellow: "bg-amber-50 border-amber-200/60 shadow-xs shadow-amber-500/5 text-amber-800",
     "rose-light": "bg-rose-50/70 border-rose-200/70 shadow-xs text-rose-800",
   };
 

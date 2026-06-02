@@ -406,16 +406,16 @@ export default function Chat({
               todayStats.count === 0 
                 ? "bg-slate-50 border-slate-200 shadow-none"
                 : todayStats.net >= 0 
-                  ? "bg-gradient-to-br from-blue-50 to-blue-100/60 border-blue-200/80 shadow-blue-500/10" 
+                  ? "bg-gradient-to-br from-emerald-50 to-emerald-100/60 border-emerald-200/80 shadow-emerald-500/10" 
                   : "bg-gradient-to-br from-rose-50 to-rose-100/50 border-rose-200/80 shadow-rose-500/10"
             }`}>
               <div>
                 <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
-                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-emerald-800" : "text-rose-800"
                 }`}>Total Bersih Hari Ini</p>
                 <p
                   className={`text-lg font-black tracking-tight mt-1 ${
-                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-700" : "text-rose-700"
+                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-emerald-700" : "text-rose-700"
                   }`}>
                   {todayStats.count > 0 && todayStats.net >= 0 ? "+" : ""}
                   {formatRupiah(todayStats.net)}
@@ -423,10 +423,10 @@ export default function Chat({
               </div>
               <div className="text-right">
                 <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
-                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-emerald-800" : "text-rose-800"
                 }`}>Transaksi</p>
                 <p className={`text-base font-black mt-1 ${
-                  todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-900" : "text-rose-900"
+                  todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-emerald-900" : "text-rose-900"
                 }`}>{todayStats.count} Kali</p>
               </div>
             </div>
@@ -648,18 +648,18 @@ export default function Chat({
                 todayStats.count === 0 
                   ? "bg-slate-50 border-slate-200 shadow-none"
                   : todayStats.net >= 0 
-                    ? "bg-gradient-to-br from-blue-50 to-blue-100/60 border-blue-200/80 shadow-blue-500/10" 
+                    ? "bg-gradient-to-br from-emerald-50 to-emerald-100/60 border-emerald-200/80 shadow-emerald-500/10" 
                     : "bg-gradient-to-br from-rose-50 to-rose-100/50 border-rose-200/80 shadow-rose-500/10"
               }`}>
                 <div>
                   <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
-                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-emerald-800" : "text-rose-800"
                   }`}>
                     Total Bersih Hari Ini
                   </p>
                   <p
                     className={`text-lg font-black tracking-tight mt-1 ${
-                      todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-700" : "text-rose-700"
+                      todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-emerald-700" : "text-rose-700"
                     }`}>
                     {todayStats.count > 0 && todayStats.net >= 0 ? "+" : ""}
                     {formatRupiah(todayStats.net)}
@@ -667,10 +667,10 @@ export default function Chat({
                 </div>
                 <div className="text-right">
                   <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
-                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-emerald-800" : "text-rose-800"
                   }`}>Transaksi</p>
                   <p className={`text-base font-black mt-1 ${
-                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-900" : "text-rose-900"
+                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-emerald-900" : "text-rose-900"
                   }`}>{todayStats.count} Kali</p>
                 </div>
               </div>
