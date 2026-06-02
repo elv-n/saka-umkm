@@ -83,7 +83,7 @@ export default function InsightCard({ periode, tanggal }: { periode: Periode; ta
             type="button"
             onClick={buatInsight}
             disabled={status === "loading"}
-            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-extrabold text-white transition hover:bg-emerald-700 disabled:opacity-60 cursor-pointer shadow-sm shadow-emerald-600/10 active:scale-95 select-none">
+            className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-extrabold text-white transition hover:bg-emerald-700 disabled:opacity-60 cursor-pointer shadow-sm shadow-emerald-600/10 active:scale-95 select-none">
             {status === "loading" ? "Membuat…" : sudahPunya ? "Buat ulang" : "Buat insight"}
           </button>
         </div>

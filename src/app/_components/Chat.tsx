@@ -402,18 +402,32 @@ export default function Chat({
 
           <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col min-h-0 space-y-4">
             {/* Today's Summary Card */}
-            <div className="bg-slate-50/80 border border-slate-200 rounded-xl p-3.5 flex justify-between items-center shrink-0 shadow-2xs">
+            <div className={`rounded-xl border p-4 flex justify-between items-center shrink-0 transition-all duration-300 shadow-sm ${
+              todayStats.count === 0 
+                ? "bg-slate-50 border-slate-200 shadow-none"
+                : todayStats.net >= 0 
+                  ? "bg-gradient-to-br from-blue-50 to-blue-100/60 border-blue-200/80 shadow-blue-500/10" 
+                  : "bg-gradient-to-br from-rose-50 to-rose-100/50 border-rose-200/80 shadow-rose-500/10"
+            }`}>
               <div>
-                <p className="text-xs uppercase tracking-wider font-extrabold text-slate-400">Total Bersih Hari Ini</p>
+                <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
+                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                }`}>Total Bersih Hari Ini</p>
                 <p
-                  className={`text-base font-black tracking-tight mt-0.5 ${todayStats.net >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
-                  {todayStats.net >= 0 ? "+" : ""}
+                  className={`text-lg font-black tracking-tight mt-1 ${
+                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-700" : "text-rose-700"
+                  }`}>
+                  {todayStats.count > 0 && todayStats.net >= 0 ? "+" : ""}
                   {formatRupiah(todayStats.net)}
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-xs uppercase tracking-wider font-extrabold text-slate-400">Transaksi</p>
-                <p className="text-sm font-extrabold text-slate-700 mt-0.5">{todayStats.count} Kali</p>
+                <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
+                  todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                }`}>Transaksi</p>
+                <p className={`text-base font-black mt-1 ${
+                  todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-900" : "text-rose-900"
+                }`}>{todayStats.count} Kali</p>
               </div>
             </div>
 
@@ -630,20 +644,34 @@ export default function Chat({
             {/* Drawer Content */}
             <div className="flex-1 overflow-y-auto p-4 bg-white flex flex-col min-h-0 space-y-4">
               {/* Today's Summary Card */}
-              <div className="bg-slate-50/80 border border-slate-200 rounded-xl p-3.5 flex justify-between items-center shrink-0 shadow-2xs">
+              <div className={`rounded-xl border p-4 flex justify-between items-center shrink-0 transition-all duration-300 shadow-sm ${
+                todayStats.count === 0 
+                  ? "bg-slate-50 border-slate-200 shadow-none"
+                  : todayStats.net >= 0 
+                    ? "bg-gradient-to-br from-blue-50 to-blue-100/60 border-blue-200/80 shadow-blue-500/10" 
+                    : "bg-gradient-to-br from-rose-50 to-rose-100/50 border-rose-200/80 shadow-rose-500/10"
+              }`}>
                 <div>
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-slate-400">
+                  <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
+                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                  }`}>
                     Total Bersih Hari Ini
                   </p>
                   <p
-                    className={`text-base font-black tracking-tight mt-0.5 ${todayStats.net >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
-                    {todayStats.net >= 0 ? "+" : ""}
+                    className={`text-lg font-black tracking-tight mt-1 ${
+                      todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-700" : "text-rose-700"
+                    }`}>
+                    {todayStats.count > 0 && todayStats.net >= 0 ? "+" : ""}
                     {formatRupiah(todayStats.net)}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-slate-400">Transaksi</p>
-                  <p className="text-sm font-extrabold text-slate-700 mt-0.5">{todayStats.count} Kali</p>
+                  <p className={`text-xs uppercase tracking-wider font-extrabold opacity-75 ${
+                    todayStats.count === 0 ? "text-slate-500" : todayStats.net >= 0 ? "text-blue-800" : "text-rose-800"
+                  }`}>Transaksi</p>
+                  <p className={`text-base font-black mt-1 ${
+                    todayStats.count === 0 ? "text-slate-700" : todayStats.net >= 0 ? "text-blue-900" : "text-rose-900"
+                  }`}>{todayStats.count} Kali</p>
                 </div>
               </div>
 

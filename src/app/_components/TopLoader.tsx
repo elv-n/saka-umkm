@@ -87,13 +87,25 @@ function TopLoaderInner() {
   if (!visible) return null;
 
   return (
-    <div
-      className="fixed top-0 left-0 right-0 z-[9999] h-[3px] bg-emerald-600 shadow-[0_1px_10px_rgba(16,185,129,0.5)] transition-all duration-300 ease-out"
-      style={{
-        width: `${progress}%`,
-        opacity: progress === 100 ? 0 : 1,
-      }}
-    />
+    <>
+      <div
+        className="fixed top-0 left-0 right-0 z-[100000] h-[3px] bg-emerald-600 shadow-[0_1px_10px_rgba(16,185,129,0.5)] transition-all duration-300 ease-out"
+        style={{
+          width: `${progress}%`,
+          opacity: progress === 100 ? 0 : 1,
+        }}
+      />
+      <div
+        className={`fixed inset-0 z-[99999] flex items-center justify-center bg-slate-50/40 backdrop-blur-sm transition-opacity duration-300 ${
+          progress === 100 ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
+        }`}
+      >
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-emerald-500/20 border-t-emerald-600 shadow-sm" />
+          <p className="text-sm font-bold text-slate-600 animate-pulse">Memuat...</p>
+        </div>
+      </div>
+    </>
   );
 }
 

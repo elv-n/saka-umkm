@@ -174,7 +174,7 @@ export default async function DashboardPage({
           )}
 
           {/* Stats Overview — Horizontal Row */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <Kartu
               label="Total Pemasukan"
               nilai={pemasukan}
