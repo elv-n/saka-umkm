@@ -1,0 +1,59 @@
+// Skema Prisma untuk Asisten Keuangan UMKM
+// Dokumentasi: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String        @id @default(cuid())
+  namaUsaha    String        @default("Usaha Saya")
+  namaPemilik  String
+  email        String        @unique
+  passwordHash String
+  nomorHP      String?
+  alamat       String?
+  bidangUsaha  String?
+  deskripsi    String?
+  status       String        @default("PENDING") // "PENDING" | "APPROVED" | "REJECTED"
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model SystemConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tanggal     DateTime @default(now())
+  // "PEMASUKAN" | "PENGELUARAN" (SQLite tidak mendukung enum Prisma)
+  tipe        String
+  item        String
+  qty         Float    @default(1)
+  hargaSatuan Float    @default(0)
+  total       Float    @default(0)
+  kategori    String?
+  rawInput    String?
+  createdAt   DateTime @default(now())
+
+  @@index([userId, tanggal])
+}

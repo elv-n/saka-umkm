@@ -22,5 +22,45 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, Arial, Helvetica, sans-serif;
 }
+
+/* Optimisasi Webview APK Seluler */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Izinkan seleksi teks hanya untuk input & teks informatif tertentu */
+input,
+textarea,
+[contenteditable="true"],
+.selectable-text {
+  user-select: text;
+}
+
+/* Pastikan elemen scrollable dapat di-scroll dengan lancar di perangkat sentuh/webview */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Sembunyikan scrollbar untuk elemen horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
