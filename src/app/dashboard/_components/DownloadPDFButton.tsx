@@ -453,16 +453,16 @@ export default function DownloadPDFButton({
       type="button"
       onClick={handleDownload}
       disabled={loading}
-      className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-extrabold transition cursor-pointer select-none whitespace-nowrap disabled:opacity-60 active:scale-95 shadow-sm shadow-emerald-600/15 shrink-0"
+      className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-extrabold transition cursor-pointer select-none whitespace-nowrap disabled:opacity-60 active:scale-95 shadow-md shadow-emerald-600/20 shrink-0"
     >
       {loading ? (
         <>
-          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+          <Loader2 className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
           <span className="hidden sm:inline">Membuat PDF…</span>
         </>
       ) : (
         <>
-          <Download className="h-3.5 w-3.5" />
+          <Download className="h-4 w-4 sm:h-5 sm:w-5" />
           <span className="hidden sm:inline">Download PDF</span>
         </>
       )}

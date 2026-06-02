@@ -562,9 +562,9 @@ export default function Chat({
             e.preventDefault();
             kirimTeks(input);
           }}
-          className="flex items-center gap-3 bg-white px-5 py-4 border-t border-slate-100 shrink-0">
+          className="flex items-center gap-3 bg-white px-5 py-3 border-t border-slate-200 shrink-0 shadow-[0_-4px_15px_-5px_rgba(0,0,0,0.05)]">
           {sedangRekam ? (
-            <div className="flex flex-1 items-center gap-2 rounded-lg bg-rose-50 border border-rose-100 px-4 py-2 text-sm font-bold text-rose-700">
+            <div className="flex flex-1 items-center gap-2 rounded-lg bg-rose-50 border border-rose-200 px-3 py-2 text-sm font-bold text-rose-700 shadow-inner">
               <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-rose-600" />
               Merekam… lepas untuk kirim
             </div>
@@ -574,7 +574,7 @@ export default function Chat({
               onChange={(e) => setInput(e.target.value)}
               placeholder="Tulis transaksi (contoh: jual beras 2kg 30rb)..."
               disabled={loading}
-              className="flex-1 rounded-lg border border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 transition-all duration-200 disabled:opacity-60 text-slate-800 placeholder:text-slate-400"
+              className="flex-1 rounded-lg border border-emerald-300/80 bg-emerald-50/20 px-3 py-2.5 text-sm outline-none focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 transition-all duration-200 disabled:opacity-60 text-slate-800 placeholder:text-slate-400 font-medium shadow-inner"
             />
           )}
 
