@@ -453,7 +453,7 @@ export default function DownloadPDFButton({
       type="button"
       onClick={handleDownload}
       disabled={loading}
-      className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1.5 text-sm font-extrabold transition cursor-pointer select-none whitespace-nowrap disabled:opacity-60 active:scale-95 shadow-sm shadow-emerald-600/15 shrink-0"
+      className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-extrabold transition cursor-pointer select-none whitespace-nowrap disabled:opacity-60 active:scale-95 shadow-sm shadow-emerald-600/15 shrink-0"
     >
       {loading ? (
         <>

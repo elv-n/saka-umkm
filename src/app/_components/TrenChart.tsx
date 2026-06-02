@@ -19,44 +19,44 @@ export default function TrenChart({ seri }: { seri: TitikSeri[] }) {
 
   // Tampilkan maksimal 12 titik terakhir agar tetap rapi.
   const data = seri.slice(-12);
-  const tinggiArea = 140;
+  const tinggiArea = 160;
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="w-full flex flex-col h-full justify-between">
       <div className="mb-3 flex items-center gap-4 text-xs">
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1.5 text-slate-500 font-semibold">
           <span className="h-2.5 w-2.5 rounded-sm bg-emerald-500" /> Pemasukan
         </span>
-        <span className="flex items-center gap-1.5">
+        <span className="flex items-center gap-1.5 text-slate-500 font-semibold">
           <span className="h-2.5 w-2.5 rounded-sm bg-red-400" /> Pengeluaran
         </span>
       </div>
 
       <div
-        className="flex items-end gap-2 overflow-x-auto"
+        className="flex items-end justify-between gap-1.5 sm:gap-3 overflow-x-auto no-scrollbar"
         style={{ height: tinggiArea }}
       >
         {data.map((titik, i) => {
-          const tinggiMasuk = Math.round((titik.pemasukan / maks) * (tinggiArea - 24));
-          const tinggiKeluar = Math.round((titik.pengeluaran / maks) * (tinggiArea - 24));
+          const tinggiMasuk = Math.round((titik.pemasukan / maks) * (tinggiArea - 20));
+          const tinggiKeluar = Math.round((titik.pengeluaran / maks) * (tinggiArea - 20));
           return (
             <div
               key={`${titik.label}-${i}`}
-              className="flex min-w-[28px] flex-1 flex-col items-center justify-end gap-1"
+              className="flex min-w-[20px] sm:min-w-[36px] flex-1 flex-col items-center justify-end gap-1.5"
             >
-              <div className="flex items-end gap-0.5" style={{ height: tinggiArea - 20 }}>
+              <div className="flex items-end gap-0.5 sm:gap-1" style={{ height: tinggiArea - 18 }}>
                 <div
-                  className="w-2.5 rounded-t bg-emerald-500 transition-all"
+                  className="w-1.5 sm:w-3 rounded-t bg-emerald-500 transition-all"
                   style={{ height: Math.max(2, tinggiMasuk) }}
                   title={`Pemasukan: ${formatRupiah(titik.pemasukan)}`}
                 />
                 <div
-                  className="w-2.5 rounded-t bg-red-400 transition-all"
+                  className="w-1.5 sm:w-3 rounded-t bg-red-400 transition-all"
                   style={{ height: Math.max(2, tinggiKeluar) }}
                   title={`Pengeluaran: ${formatRupiah(titik.pengeluaran)}`}
                 />
               </div>
-              <span className="whitespace-nowrap text-xs text-zinc-500">
+              <span className="whitespace-nowrap text-[9px] sm:text-xs font-bold text-slate-400">
                 {titik.label}
               </span>
             </div>

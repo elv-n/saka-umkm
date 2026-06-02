@@ -49,20 +49,20 @@ export default function TransactionList({ transaksi }: TransactionListProps) {
             className="flex items-center justify-between px-3.5 py-2.5 hover:bg-zinc-50/55 dark:hover:bg-zinc-800/30 transition"
           >
             <div className="min-w-0 flex-1 pr-2">
-              <p className="text-sm font-semibold truncate text-zinc-800 dark:text-zinc-300">
+              <p className="text-xs sm:text-sm font-semibold truncate text-zinc-800 dark:text-zinc-300">
                 {t.item}
               </p>
-              <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate mt-0.5">
+              <p className="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 truncate mt-0.5">
                 {formatTanggal(t.tanggal)}
                 {t.kategori ? ` • ${t.kategori}` : ""}
               </p>
             </div>
-            <div className="flex flex-col items-end gap-1 shrink-0">
+            <div className="flex flex-col items-end gap-0.5 shrink-0">
               <span
                 className={
                   t.tipe === "PEMASUKAN"
-                    ? "text-sm font-bold text-emerald-600 dark:text-emerald-400"
-                    : "text-sm font-bold text-red-500 dark:text-red-400"
+                    ? "text-xs sm:text-sm font-extrabold text-emerald-600 dark:text-emerald-400"
+                    : "text-xs sm:text-sm font-extrabold text-rose-600 dark:text-red-400"
                 }
               >
                 {t.tipe === "PEMASUKAN" ? "+" : "-"}

@@ -26,8 +26,8 @@ export default function ItemBarChart({
   );
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-      <h3 className="mb-3 text-sm font-semibold">{judul}</h3>
+    <div className="w-full flex flex-col">
+      <h3 className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-slate-400">{judul}</h3>
       {data.length === 0 ? (
         <p className="text-sm text-zinc-500">Belum ada data.</p>
       ) : (
@@ -37,8 +37,8 @@ export default function ItemBarChart({
             return (
               <li key={d.nama}>
                 <div className="mb-1 flex justify-between text-xs">
-                  <span className="truncate pr-2">{d.nama}</span>
-                  <span className="font-semibold tabular-nums">
+                  <span className="truncate pr-2 text-slate-600 font-semibold">{d.nama}</span>
+                  <span className="font-extrabold text-slate-800 tabular-nums">
                     {metric === "qty" ? `${d.totalQty} unit` : formatRupiah(d.totalNilai)}
                   </span>
                 </div>

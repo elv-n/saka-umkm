@@ -523,14 +523,14 @@ export default function Chat({
         </div>
 
         {/* Quick prompt suggestions */}
-        <div className="flex flex-wrap gap-2 border-t border-slate-100 bg-white px-5 py-3 shrink-0">
+        <div className="flex flex-wrap gap-1.5 border-t border-slate-100 bg-white px-5 py-2.5 shrink-0">
           {CONTOH.map((c) => (
             <button
               key={c}
               type="button"
               disabled={loading || sedangRekam}
               onClick={() => kirimTeks(c)}
-              className="rounded-lg border border-emerald-200/60 bg-emerald-50/50 px-3.5 py-2 text-sm font-bold text-emerald-700 transition hover:bg-emerald-100 disabled:opacity-50 cursor-pointer active:scale-95 select-none">
+              className="rounded-lg border border-emerald-200/60 bg-emerald-50/50 px-2.5 py-1.5 text-xs font-bold text-emerald-700 transition hover:bg-emerald-100 disabled:opacity-50 cursor-pointer active:scale-95 select-none">
               {c}
             </button>
           ))}

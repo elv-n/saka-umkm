@@ -13,8 +13,8 @@ export default function PieChart({
   const laba = pemasukan - pengeluaran;
 
   // Geometri donut.
-  const ukuran = 140;
-  const stroke = 24;
+  const ukuran = 120;
+  const stroke = 20;
   const radius = (ukuran - stroke) / 2;
   const keliling = 2 * Math.PI * radius;
   const cx = ukuran / 2;
@@ -24,13 +24,11 @@ export default function PieChart({
   const panjangMasuk = porsiMasuk * keliling;
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
-      <h3 className="mb-3 text-sm font-semibold">Untung / Rugi</h3>
-
+    <div className="w-full">
       {total === 0 ? (
-        <p className="text-xs text-zinc-500">Belum ada data.</p>
+        <p className="text-sm text-zinc-500">Belum ada data.</p>
       ) : (
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex items-center justify-between gap-5 w-full">
           <div className="relative shrink-0" style={{ width: ukuran, height: ukuran }}>
             <svg
               width={ukuran}
@@ -63,14 +61,14 @@ export default function PieChart({
             </svg>
             {/* Label tengah: laba/rugi */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <span className="text-xs uppercase tracking-wide text-zinc-400">
+              <span className="text-[10px] uppercase tracking-wide text-zinc-400 font-bold">
                 {laba >= 0 ? "Laba" : "Rugi"}
               </span>
               <span
                 className={
                   laba >= 0
-                    ? "text-sm font-bold text-emerald-600"
-                    : "text-sm font-bold text-red-600"
+                    ? "text-xs font-black text-emerald-600"
+                    : "text-xs font-black text-red-600"
                 }
               >
                 {formatRupiah(Math.abs(laba))}
@@ -79,7 +77,7 @@ export default function PieChart({
           </div>
 
           {/* Legenda + angka */}
-          <dl className="min-w-[160px] flex-1 space-y-2 text-sm">
+          <dl className="min-w-[110px] flex-1 space-y-2.5 text-xs sm:text-sm">
             <Baris
               warna="bg-emerald-500"
               label="Pemasukan"
