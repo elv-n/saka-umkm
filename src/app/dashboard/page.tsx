@@ -348,9 +348,9 @@ function Kartu({
 
   return (
     <div
-      className={`rounded-xl border px-2 py-2.5 sm:px-3.5 sm:py-3 flex flex-col transition-all duration-300 hover:shadow-xs ${colorMap[highlight]}`}>
-      <p className="text-[10px] sm:text-xs uppercase font-bold tracking-wider opacity-70 truncate">{label}</p>
-      <p className={`mt-0.5 text-xs sm:text-base md:text-lg font-black tracking-tight ${warna} truncate`}>{formatRupiah(nilai)}</p>
+      className={`rounded-xl border px-3 py-3 sm:px-4 sm:py-4 flex flex-col transition-all duration-300 hover:shadow-xs ${colorMap[highlight]}`}>
+      <p className="text-[11px] sm:text-xs uppercase font-bold tracking-wider opacity-70 truncate">{label}</p>
+      <p className={`mt-0.5 text-xl sm:text-2xl md:text-3xl font-black tracking-tight ${warna} truncate`}>{formatRupiah(nilai)}</p>
     </div>
   );
 }

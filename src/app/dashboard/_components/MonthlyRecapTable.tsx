@@ -65,10 +65,10 @@ export default function MonthlyRecapTable({ transaksi }: { transaksi: TransaksiD
   const totalCount = sortedRecap.reduce((s, r) => s + r.count, 0);
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900 shadow-sm">
+    <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white shadow-sm">
       <table className="w-full text-left text-xs sm:text-sm border-collapse">
         <thead>
-          <tr className="border-b border-zinc-200 bg-zinc-50 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-400 dark:border-zinc-800 dark:bg-zinc-950">
+          <tr className="border-b border-zinc-200 bg-zinc-50 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-400">
             <th className="px-2 py-2.5 sm:px-4 sm:py-3">Periode</th>
             <th className="px-2 py-2.5 sm:px-4 sm:py-3 text-right">Pemasukan</th>
             <th className="px-2 py-2.5 sm:px-4 sm:py-3 text-right">Pengeluaran</th>
@@ -76,32 +76,32 @@ export default function MonthlyRecapTable({ transaksi }: { transaksi: TransaksiD
             <th className="px-2 py-2.5 sm:px-4 sm:py-3 text-center">Transaksi</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+        <tbody className="divide-y divide-zinc-200">
           {sortedRecap.map((row) => {
             const laba = row.pemasukan - row.pengeluaran;
             return (
-              <tr key={row.label} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
-                <td className="px-2 py-2 sm:px-4 sm:py-3 font-semibold text-zinc-800 dark:text-zinc-200 whitespace-nowrap">{row.label}</td>
+              <tr key={row.label} className="hover:bg-zinc-50/50 transition">
+                <td className="px-2 py-2 sm:px-4 sm:py-3 font-semibold text-zinc-800 whitespace-nowrap">{row.label}</td>
                 <td className="px-2 py-2 sm:px-4 sm:py-3 text-right text-emerald-600 font-bold whitespace-nowrap">
                   {formatRupiah(row.pemasukan)}
                 </td>
                 <td className="px-2 py-2 sm:px-4 sm:py-3 text-right text-rose-600 font-bold whitespace-nowrap">
                   {formatRupiah(row.pengeluaran)}
                 </td>
-                <td className={`px-2 py-2 sm:px-4 sm:py-3 text-right font-black whitespace-nowrap ${laba >= 0 ? "text-slate-800 dark:text-zinc-50" : "text-rose-600"}`}>
+                <td className={`px-2 py-2 sm:px-4 sm:py-3 text-right font-black whitespace-nowrap ${laba >= 0 ? "text-slate-800" : "text-rose-600"}`}>
                   {formatRupiah(laba)}
                 </td>
-                <td className="px-2 py-2 sm:px-4 sm:py-3 text-center font-bold text-zinc-500 dark:text-zinc-400">{row.count}</td>
+                <td className="px-2 py-2 sm:px-4 sm:py-3 text-center font-bold text-zinc-500">{row.count}</td>
               </tr>
             );
           })}
         </tbody>
         <tfoot>
-          <tr className="bg-zinc-50 font-black border-t-2 border-zinc-200 text-zinc-800 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-100">
+          <tr className="bg-zinc-50 font-black border-t-2 border-zinc-200 text-zinc-800">
             <td className="px-2 py-2.5 sm:px-4 sm:py-3 whitespace-nowrap">Total Rekap</td>
             <td className="px-2 py-2.5 sm:px-4 sm:py-3 text-right text-emerald-600 whitespace-nowrap">{formatRupiah(totalPemasukan)}</td>
             <td className="px-2 py-2.5 sm:px-4 sm:py-3 text-right text-rose-600 whitespace-nowrap">{formatRupiah(totalPengeluaran)}</td>
-            <td className={`px-2 py-2.5 sm:px-4 sm:py-3 text-right whitespace-nowrap ${totalLaba >= 0 ? "text-slate-900 dark:text-zinc-50" : "text-rose-600"}`}>
+            <td className={`px-2 py-2.5 sm:px-4 sm:py-3 text-right whitespace-nowrap ${totalLaba >= 0 ? "text-slate-900" : "text-rose-600"}`}>
               {formatRupiah(totalLaba)}
             </td>
             <td className="px-2 py-2.5 sm:px-4 sm:py-3 text-center">{totalCount}</td>
