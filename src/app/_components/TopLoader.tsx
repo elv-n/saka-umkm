@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function TopLoader() {
+function TopLoaderInner() {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
@@ -94,5 +94,13 @@ export default function TopLoader() {
         opacity: progress === 100 ? 0 : 1,
       }}
     />
+  );
+}
+
+export default function TopLoader() {
+  return (
+    <Suspense fallback={null}>
+      <TopLoaderInner />
+    </Suspense>
   );
 }
